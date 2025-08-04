@@ -179,7 +179,5 @@ MDN Web Docs - Technical references
 CSS-Tricks - Layout techniques and best practices
 
 📞 Contact
-
-GitHub: @yourusername
-Email: your.email@example.com
-Twitter: @yourusername
+GitHub: @kyawkhaungml
+Email: kyawkhaung.ml01@gmail.com
