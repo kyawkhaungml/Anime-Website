@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9AnimeTV - Best free anime to watch in HD quality</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">9AnimeTV</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#genre">Genre</a></li>
+                    <li><a href="#country">Country</a></li>
+                    <li><a href="#movies">Movies</a></li>
+                    <li><a href="#tv-series">TV Series</a></li>
+                    <li><a href="#most-popular">Most Popular</a></li>
+                </ul>
+            </nav>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search anime..." id="searchInput">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h2 class="filter-title">Quick Filter</h2>
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label>Genre</label>
+                    <select id="genreFilter">
+                        <option value="">All</option>
+                        <option value="action">Action</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="romance">Romance</option>
+                        <option value="sci-fi">Sci-Fi</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Country</label>
+                    <select id="countryFilter">
+                        <option value="">All</option>
+                        <option value="japan">Japan</option>
+                        <option value="china">China</option>
+                        <option value="korea">Korea</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Season</label>
+                    <select id="seasonFilter">
+                        <option value="">All</option>
+                        <option value="spring">Spring</option>
+                        <option value="summer">Summer</option>
+                        <option value="fall">Fall</option>
+                        <option value="winter">Winter</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Year</label>
+                    <select id="yearFilter">
+                        <option value="">All</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Type</label>
+                    <select id="typeFilter">
+                        <option value="">All</option>
+                        <option value="tv">TV</option>
+                        <option value="movie">Movie</option>
+                        <option value="ova">OVA</option>
+                        <option value="ona">ONA</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Status</label>
+                    <select id="statusFilter">
+                        <option value="">All</option>
+                        <option value="ongoing">Ongoing</option>
+                        <option value="completed">Completed</option>
+                        <option value="upcoming">Upcoming</option>
+                    </select>
+                </div>
+                <button class="filter-btn" onclick="applyFilters()">Filter</button>
+            </div>
+        </div>
+
+        <!-- Rankings Container -->
+        <div class="rankings-container">
+            <!-- Today Rankings -->
+            <div class="ranking-section">
+                <h3 class="ranking-title">
+                    <i class="fas fa-fire"></i>
+                    Today's Top 10
+                </h3>
+                <div id="todayRankings">
+                    <!-- Rankings will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- This Week Rankings -->
+            <div class="ranking-section">
+                <h3 class="ranking-title">
+                    <i class="fas fa-star"></i>
+                    This Week's Top 10
+                </h3>
+                <div id="weekRankings">
+                    <!-- Rankings will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- This Month Rankings -->
+            <div class="ranking-section">
+                <h3 class="ranking-title">
+                    <i class="fas fa-trophy"></i>
+                    This Month's Top 10
+                </h3>
+                <div id="monthRankings">
+                    <!-- Rankings will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Recently Added Section -->
+        <div class="recently-added">
+            <h2 class="section-title">
+                <i class="fas fa-clock"></i>
+                Recently Added
+            </h2>
+            <div class="anime-grid" id="recentlyAdded">
+                <!-- Anime cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
