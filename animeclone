@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9AnimeTV - Best free anime to watch in HD quality</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0d1117;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: #f0f6fc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #58a6ff;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 8px 12px;
+            min-width: 300px;
+        }
+
+        .search-box input {
+            background: none;
+            border: none;
+            color: #f0f6fc;
+            outline: none;
+            flex: 1;
+            padding: 2px 8px;
+        }
+
+        .search-box i {
+            color: #7d8590;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 60px;
+            padding: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .filter-title {
+            color: #58a6ff;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-group label {
+            color: #7d8590;
+            font-size: 14px;
+        }
+
+        .filter-group select {
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #f0f6fc;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .filter-btn {
+            background: #238636;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .filter-btn:hover {
+            background: #2ea043;
+        }
+
+        /* Rankings Section */
+        .rankings-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .ranking-section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .ranking-title {
+            color: #58a6ff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #21262d;
+            transition: background 0.3s;
+        }
+
+        .ranking-item:hover {
+            background: #21262d;
+        }
+
+        .ranking-number {
+            background: #58a6ff;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .ranking-info {
+            flex: 1;
+        }
+
+        .ranking-info a {
+            color: #f0f6fc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .ranking-info a:hover {
+            color: #58a6ff;
+        }
+
+        .ranking-views {
+            color: #7d8590;
+            font-size: 12px;
+        }
+
+        /* Recently Added Section */
+        .recently-added {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #58a6ff;
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .anime-card {
+            background: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .anime-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(88, 166, 255, 0.3);
+        }
+
+        .anime-poster {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(45deg, #58a6ff, #f85149);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            position: relative;
+        }
+
+        .anime-info {
+            padding: 15px;
+        }
+
+        .anime-title {
+            color: #f0f6fc;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .anime-title:hover {
+            color: #58a6ff;
+        }
+
+        .anime-meta {
+            color: #7d8590;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .episode-badge {
+            background: #238636;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .search-box {
+                min-width: 200px;
+            }
+
+            .rankings-container {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .anime-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #30363d;
+            border-radius: 50%;
+            border-top-color: #58a6ff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #161b22;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #58a6ff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">9AnimeTV</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#genre">Genre</a></li>
+                    <li><a href="#country">Country</a></li>
+                    <li><a href="#movies">Movies</a></li>
+                    <li><a href="#tv-series">TV Series</a></li>
+                    <li><a href="#most-popular">Most Popular</a></li>
+                </ul>
+            </nav>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search anime..." id="searchInput">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h2 class="filter-title">Quick Filter</h2>
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label>Genre</label>
+                    <select id="genreFilter">
+                        <option value="">All</option>
+                        <option value="action">Action</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="romance">Romance</option>
+                        <option value="sci-fi">Sci-Fi</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Country</label>
+                    <select id="countryFilter">
+                        <option value="">All</option>
+                        <option value="japan">Japan</option>
+                        <option value="china">China</option>
+                        <option value="korea">Korea</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Season</label>
+                    <select id="seasonFilter">
+                        <option value="">All</option>
+                        <option value="spring">Spring</option>
+                        <option value="summer">Summer</option>
+                        <option value="fall">Fall</option>
+                        <option value="winter">Winter</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Year</label>
+                    <select id="yearFilter">
+                        <option value="">All</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Type</label>
+                    <select id="typeFilter">
+                        <option value="">All</option>
+                        <option value="tv">TV</option>
+                        <option value="movie">Movie</option>
+                        <option value="ova">OVA</option>
+                        <option value="ona">ONA</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Status</label>
+                    <select id="statusFilter">
+                        <option value="">All</option>
+                        <option value="ongoing">Ongoing</option>
+                        <option value="completed">Completed</option>
+                        <option value="upcoming">Upcoming</option>
+                    </select>
+                </div>
+                <button class="filter-btn" onclick="applyFilters()">Filter</button>
+            </div>
+        </div>
+
+        <!-- Rankings Container -->
+        <div class="rankings-container">
+            <!-- Today Rankings -->
+            <div class="ranking-section">
+                <h3 class="ranking-title">
+                    <i class="fas fa-fire"></i>
+                    Today's Top 10
+                </h3>
+                <div id="todayRankings">
+                    <!-- Rankings will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- This Week Rankings -->
+            <div class="ranking-section">
+                <h3 class="ranking-title">
+                    <i class="fas fa-star"></i>
+                    This Week's Top 10
+                </h3>
+                <div id="weekRankings">
+                    <!-- Rankings will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- This Month Rankings -->
+            <div class="ranking-section">
+                <h3 class="ranking-title">
+                    <i class="fas fa-trophy"></i>
+                    This Month's Top 10
+                </h3>
+                <div id="monthRankings">
+                    <!-- Rankings will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Recently Added Section -->
+        <div class="recently-added">
+            <h2 class="section-title">
+                <i class="fas fa-clock"></i>
+                Recently Added
+            </h2>
+            <div class="anime-grid" id="recentlyAdded">
+                <!-- Anime cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Sample data structure
+        const animeData = {
+            rankings: {
+                today: [
+                    { title: "One Piece", views: "145,580", link: "/watch/one-piece-100" },
+                    { title: "Gachiakuta", views: "122,156", link: "/watch/gachiakuta-19785" },
+                    { title: "Kaiju No. 8 Season 2", views: "67,527", link: "/watch/kaiju-no-8-season-2-19792" },
+                    { title: "Apocalypse Bringer Mynoghra", views: "40,801", link: "/watch/apocalypse-bringer-mynoghra-19772" },
+                    { title: "The Water Magician", views: "37,425", link: "/watch/the-water-magician-19770" },
+                    { title: "Naruto: Shippuden", views: "35,153", link: "/watch/naruto-shippuden-355" },
+                    { title: "Sakamoto Days Part 2", views: "34,141", link: "/watch/sakamoto-days-part-2-19787" },
+                    { title: "Solo Leveling Season 2", views: "32,876", link: "/watch/solo-leveling-season-2" },
+                    { title: "Jujutsu Kaisen", views: "31,542", link: "/watch/jujutsu-kaisen" },
+                    { title: "Dan Da Dan Season 2", views: "30,479", link: "/watch/dan-da-dan-season-2-19793" }
+                ],
+                week: [
+                    { title: "One Piece", views: "1,066,725", link: "/watch/one-piece-100" },
+                    { title: "Gachiakuta", views: "618,456", link: "/watch/gachiakuta-19785" },
+                    { title: "Kaiju No. 8 Season 2", views: "573,185", link: "/watch/kaiju-no-8-season-2-19792" },
+                    { title: "The Water Magician", views: "465,426", link: "/watch/the-water-magician-19770" },
+                    { title: "Attack on Titan", views: "412,789", link: "/watch/attack-on-titan" },
+                    { title: "Dan Da Dan Season 2", views: "377,678", link: "/watch/dan-da-dan-season-2-19793" },
+                    { title: "Naruto: Shippuden", views: "334,701", link: "/watch/naruto-shippuden-355" },
+                    { title: "Demon Slayer", views: "298,543", link: "/watch/demon-slayer" },
+                    { title: "Sakamoto Days Part 2", views: "258,730", link: "/watch/sakamoto-days-part-2-19787" },
+                    { title: "Clevatess", views: "221,458", link: "/watch/clevatess-19760" }
+                ],
+                month: [
+                    { title: "One Piece", views: "4,122,409", link: "/watch/one-piece-100" },
+                    { title: "Gachiakuta", views: "1,772,971", link: "/watch/gachiakuta-19785" },
+                    { title: "The Water Magician", views: "1,463,391", link: "/watch/the-water-magician-19770" },
+                    { title: "Dan Da Dan Season 2", views: "1,397,776", link: "/watch/dan-da-dan-season-2-19793" },
+                    { title: "Naruto: Shippuden", views: "1,358,607", link: "/watch/naruto-shippuden-355" },
+                    { title: "My Hero Academia", views: "1,298,456", link: "/watch/my-hero-academia" },
+                    { title: "Kaiju No. 8 Season 2", views: "1,267,379", link: "/watch/kaiju-no-8-season-2-19792" },
+                    { title: "Lord of Mysteries", views: "907,814", link: "/watch/lord-of-mysteries-19802" },
+                    { title: "Black Clover", views: "883,237", link: "/watch/black-clover-2404" },
+                    { title: "Jujutsu Kaisen", views: "856,123", link: "/watch/jujutsu-kaisen" }
+                ]
+            },
+            recentlyAdded: [
+                { title: "Yuu Gi Ou: Go Rush!!", year: "2022", episodes: "151/151", type: "TV" },
+                { title: "Magical DoReMi", year: "1999", episodes: "51/51", type: "TV" },
+                { title: "Votoms Finder Armored Trooperoid", year: "2010", episodes: "1/1", type: "OVA" },
+                { title: "Wonderful Precure! Movie", year: "2024", episodes: "Full", type: "Movie" },
+                { title: "Kimera", year: "1996", episodes: "1/1", type: "OVA" },
+                { title: "Isekai Onsen Paradise [UNCENSORED]", year: "2024", episodes: "12/12", type: "TV" },
+                { title: "Cardfight!! Vanguard Movie: Neon Messiah", year: "2014", episodes: "Full", type: "Movie" },
+                { title: "Takopi's Original Sin", year: "2025", episodes: "6/6", type: "TV" },
+                { title: "Ne Zha 2", year: "2025", episodes: "Full", type: "Movie" },
+                { title: "New Gods: Nezha Reborn", year: "2021", episodes: "Full", type: "Movie" },
+                { title: "Spy x Family Season 3", year: "2025", episodes: "24/24", type: "TV" },
+                { title: "Chainsaw Man Part 2", year: "2025", episodes: "12/12", type: "TV" }
+            ]
+        };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            populateRankings();
+            populateRecentlyAdded();
+            setupSearch();
+        });
+
+        // Populate rankings
+        function populateRankings() {
+            populateRankingSection('todayRankings', animeData.rankings.today);
+            populateRankingSection('weekRankings', animeData.rankings.week);
+            populateRankingSection('monthRankings', animeData.rankings.month);
+        }
+
+        function populateRankingSection(elementId, data) {
+            const container = document.getElementById(elementId);
+            container.innerHTML = data.map((anime, index) => `
+                <div class="ranking-item">
+                    <div class="ranking-number">${index + 1}</div>
+                    <div class="ranking-info">
+                        <a href="${anime.link}">${anime.title}</a>
+                        <div class="ranking-views">${anime.views}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Populate recently added section
+        function populateRecentlyAdded() {
+            const container = document.getElementById('recentlyAdded');
+            container.innerHTML = animeData.recentlyAdded.map(anime => `
+                <div class="anime-card" onclick="openAnime('${anime.title}')">
+                    <div class="anime-poster">
+                        <span>${anime.title}</span>
+                        <div class="episode-badge">${anime.episodes}</div>
+                    </div>
+                    <div class="anime-info">
+                        <a href="#" class="anime-title">${anime.title}</a>
+                        <div class="anime-meta">
+                            <span>${anime.year}</span>
+                            <span>${anime.type}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Search functionality
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', debounce(performSearch, 300));
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            if (query.length < 2) return;
+
+            // Simulate search results
+            console.log('Searching for:', query);
+            // In a real implementation, this would make an API call
+        }
+
+        // Apply filters
+        function applyFilters() {
+            const filters = {
+                genre: document.getElementById('genreFilter').value,
+                country: document.getElementById('countryFilter').value,
+                season: document.getElementById('seasonFilter').value,
+                year: document.getElementById('yearFilter').value,
+                type: document.getElementById('typeFilter').value,
+                status: document.getElementById('statusFilter').value
+            };
+
+            console.log('Applying filters:', filters);
+            // In a real implementation, this would filter the anime list
+        }
+
+        // Open anime details
+        function openAnime(title) {
+            console.log('Opening anime:', title);
+            // In a real implementation, this would navigate to the anime details page
+            alert(`Opening ${title} - This would navigate to the anime details page`);
+        }
+
+        // Utility function for debouncing
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Simulate loading new content
+        function loadMoreContent() {
+            // This would be called when scrolling to the bottom or clicking a "Load More" button
+            console.log('Loading more content...');
+        }
+
+        // Handle responsive menu toggle
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('mobile-active');
+        }
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
