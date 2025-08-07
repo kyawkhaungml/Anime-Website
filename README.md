@@ -1,4 +1,4 @@
-# Anime-Website
+# 9Anime Clone Website
 A pixel-perfect clone of the popular 9anime streaming platform, built for educational purposes to demonstrate modern web development techniques and responsive design patterns.
 
 9Anime Clone - Anime Streaming Platform
